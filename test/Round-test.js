@@ -13,7 +13,7 @@ describe('Deck', function() {
   let card2;
   let card3;
   let deck;
-  let turn;
+  let turn1;
 
   beforeEach(function() {
     round = new Round();
@@ -24,7 +24,7 @@ describe('Deck', function() {
 
     deck = new Deck([card1, card2, card3]);
 
-    turn = new Turn('Rollie Pollie', card);
+    turn1 = new Turn('sea otter', card);
   })
 
   it.skip('should be a function', function() {
@@ -49,23 +49,35 @@ describe('Deck', function() {
     expect(round.turns).to.equal(3);
   });
 
-  it('should should evaluate a guess when a turn is taken', function() {
+  it.skip('should evaluate a guess when a turn is taken', function() {
     expect(round.takeTurn()).to.equal(false);
   });
 
-  it('should give feedback when it a turn is taken', function() {
+  it.skip('should give feedback when it a turn is taken', function() {
     expect(round.takeTurn()).to.equal('Incorrect!');
   });
 
-  it('should store the id of incorrect guesses', function() {
+  it.skip('should store the id of incorrect guesses', function() {
     round.takeTurn();
 
     expect(round.incorrectGuesses).to.deep.equal([1]);
   });
 
-  it('should store the id of incorrect guesses', function() {
+  it.skip('should create a new instance of Turn when a guess is made', function() {
+    round.takeTurn();
     round.takeTurn();
 
-    expect(round.takeTurn()).to.equal('Incorrect!');
+    expect(round.returnCurrentCard()).to.equal(card3);
+  });
 
+  it.skip('should calculate and return percentage of correct guesses', function() {
+    round.takeTurn();
+    round.takeTurn();
+
+    expect(round.calculatePercentageCorrect()).to.equal(50);
+  });
+
+  it.skip('should end round with a message showing percentage correct', function() {
+    expect(round.endRound()).to.equal('**Round over!** You answered 50% of the questions correctly!');
+  })
 });
