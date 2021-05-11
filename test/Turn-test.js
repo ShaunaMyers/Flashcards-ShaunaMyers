@@ -17,32 +17,32 @@ describe('Turn', function() {
   });
 
   it.skip('should store a user\'s guess', function() {
-    const turn = new Turn('guess', Card);
+    const turn = new Turn('guess', card);
     expect(turn.guess).to.equal('guess');
   });
 
   it.skip('should store the current card in play', function() {
-    const turn = new Turn('guess', Card);
-    expect(turn.card).to.equal(Card);
+    const turn = new Turn('guess', card);
+    expect(turn.card).to.equal(card);
   });
 
   it.skip('should return the user\'s guess', function() {
-    const turn = new Turn('guess', Card);
+    const turn = new Turn('guess', card);
     expect(turn.returnGuess()).to.equal('guess');
   });
 
   it.skip('should return the card in play', function() {
-    const turn = new Turn('guess', Card);
-    expect(turn.returnCard()).to.equal(Card);
+    const turn = new Turn('guess', card);
+    expect(turn.returnCard()).to.equal(card);
   });
 
   it.skip('should evaluate if the user\'s guess is correct', function() {
-    const turn = new Turn('guess', Card);
+    const turn = new Turn('guess', card);
     expect(turn.evaluateGuess()).to.equal(false);
   });
 
   it.skip('should let the user know if their guess is correct', function() {
-    const turn = new TUrn('guess', Card);
-    expect(turn.giveFeedback()).to.equal('string')
+    const turn = new Turn('guess', card);
+    expect(turn.giveFeedback()).to.equal('string');
   })
 });
