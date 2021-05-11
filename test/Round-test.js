@@ -8,44 +8,38 @@ const Turn = require('../src/Turn');
 
 describe('Deck', function() {
 
+  let round;
+  let card1;
+  let card2;
+  let card3;
+  let deck;
+  let turn;
+
   beforeEach(function() {
-    let round = new Round();
+    round = new Round();
 
-    let card1 = new Card(1, 'What is Robbie\'s favorite animal', ['sea otter', 'pug', 'capybara'], 'sea otter');
-    let card2 = new Card(14, 'What organ is Khalid missing?', ['spleen', 'appendix', 'gallbladder'], 'gallbladder');
-    let card3 = new Card(12, 'What is Travis\'s middle name?', ['Lex', 'William', 'Fitzgerald'], 'Fitzgerald');
+    card1 = new Card(1, 'What is Robbie\'s favorite animal', ['sea otter', 'pug', 'capybara'], 'sea otter');
+    card2 = new Card(14, 'What organ is Khalid missing?', ['spleen', 'appendix', 'gallbladder'], 'gallbladder');
+    card3 = new Card(12, 'What is Travis\'s middle name?', ['Lex', 'William', 'Fitzgerald'], 'Fitzgerald');
 
-    let deck = new Deck([card1, card2, card3]);
+    deck = new Deck([card1, card2, card3]);
 
-    let turn = new Turn('Rollie Pollie', card);
+    turn = new Turn('Rollie Pollie', card);
   })
 
   it.skip('should be a function', function() {
-    round = new Round();
     expect(round).to.be.a('function');
   });
 
-  it('should be an instance of Deck', function() {
-    const round = new Round();
+  it.skip('should be an instance of Deck', function() {
     expect(round).to.be.an.instanceof(Round);
   });
 
-  it('should return the current card in play', function() {
-    // const round = new Round(deck);
-    //
-    // const card1 = new Card(1, 'What is Robbie\'s favorite animal', ['sea otter', 'pug', 'capybara'], 'sea otter');
-    // const card2 = new Card(14, 'What organ is Khalid missing?', ['spleen', 'appendix', 'gallbladder'], 'gallbladder');
-    // const card3 = new Card(12, 'What is Travis\'s middle name?', ['Lex', 'William', 'Fitzgerald'], 'Fitzgerald');
-    //
-    // const deck = new Deck([card1, card2, card3]);
-
-
+  it.skip('should return the current card in play', function() {
     expect(round.returnCurrentCard).to.equal(card1);
   });
 
-  it('should keep track of how many turns have been taken', function() {
-    // const round = new Round();
-
+  it.skip('should keep track of how many turns have been taken', function() {
     expect(round.turns).to.equal(0);
 
     round.takeTurn();
@@ -56,60 +50,20 @@ describe('Deck', function() {
   });
 
   it('should should evaluate a guess when a turn is taken', function() {
-    const round = new Round(deck);
-
-    const card1 = new Card(1, 'What is Robbie\'s favorite animal', ['sea otter', 'pug', 'capybara'], 'sea otter');
-    const card2 = new Card(14, 'What organ is Khalid missing?', ['spleen', 'appendix', 'gallbladder'], 'gallbladder');
-    const card3 = new Card(12, 'What is Travis\'s middle name?', ['Lex', 'William', 'Fitzgerald'], 'Fitzgerald');
-
-    const deck = new Deck([card1, card2, card3]);
-
-    const turn = new Turn('Dust Bunny', card);
-
     expect(round.takeTurn()).to.equal(false);
   });
 
   it('should give feedback when it a turn is taken', function() {
-    const round = new Round();
-
-    const card1 = new Card(1, 'What is Robbie\'s favorite animal', ['sea otter', 'pug', 'capybara'], 'sea otter');
-    const card2 = new Card(14, 'What organ is Khalid missing?', ['spleen', 'appendix', 'gallbladder'], 'gallbladder');
-    const card3 = new Card(12, 'What is Travis\'s middle name?', ['Lex', 'William', 'Fitzgerald'], 'Fitzgerald');
-
-    const deck = new Deck([card1, card2, card3]);
-
-    const turn = new Turn('Rollie Pollie', card);
-
     expect(round.takeTurn()).to.equal('Incorrect!');
   });
 
   it('should store the id of incorrect guesses', function() {
-    const round = new Round();
-
-    const card1 = new Card(1, 'What is Robbie\'s favorite animal', ['sea otter', 'pug', 'capybara'], 'sea otter');
-    const card2 = new Card(14, 'What organ is Khalid missing?', ['spleen', 'appendix', 'gallbladder'], 'gallbladder');
-    const card3 = new Card(12, 'What is Travis\'s middle name?', ['Lex', 'William', 'Fitzgerald'], 'Fitzgerald');
-
-    const deck = new Deck([card1, card2, card3]);
-
-    const turn = new Turn('Rollie Pollie', card);
-
     round.takeTurn();
 
     expect(round.incorrectGuesses).to.deep.equal([1]);
   });
 
   it('should store the id of incorrect guesses', function() {
-    const round = new Round();
-
-    const card1 = new Card(1, 'What is Robbie\'s favorite animal', ['sea otter', 'pug', 'capybara'], 'sea otter');
-    const card2 = new Card(14, 'What organ is Khalid missing?', ['spleen', 'appendix', 'gallbladder'], 'gallbladder');
-    const card3 = new Card(12, 'What is Travis\'s middle name?', ['Lex', 'William', 'Fitzgerald'], 'Fitzgerald');
-
-    const deck = new Deck([card1, card2, card3]);
-
-    const turn = new Turn('Rollie Pollie', card);
-
     round.takeTurn();
 
     expect(round.takeTurn()).to.equal('Incorrect!');
