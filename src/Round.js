@@ -28,6 +28,16 @@ class Round {
    this.turns ++;
    return this.turn.giveFeedback();;
   }
+
+  calculatePercentageCorrect() {
+    const percentageCorrect = (this.correctGuesses / (this.incorrectGuesses.length + this.correctGuesses)) * 100;
+    return percentageCorrect;
+  }
+
+  endRound() {
+    const percentage = this.calculatePercentageCorrect();
+    return `**Round over!** You answered ${percentage}% of the questions correctly!`;
+  }
 }
 
 module.exports = Round;

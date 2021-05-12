@@ -58,20 +58,25 @@ describe('Round', function() {
     expect(round1.takeTurn('porcupine')).to.equal('Incorrect!');
   });
 
-  it.skip('should store the id of incorrect guesses', function() {
+  it('should store the id of incorrect guesses', function() {
     round1.takeTurn();
 
     expect(round1.incorrectGuesses).to.deep.equal([1]);
   });
 
-  it.skip('should calculate and return percentage of correct guesses', function() {
-    round1.takeTurn();
-    round1.takeTurn();
+  it('should calculate and return percentage of correct guesses', function() {
+
+    round1.takeTurn('chupacabra');
+    round1.takeTurn('gallbladder');
 
     expect(round1.calculatePercentageCorrect()).to.equal(50);
   });
 
-  it.skip('should end round with a message showing percentage correct', function() {
+  it('should end round with a message showing percentage correct', function() {
+
+    round1.takeTurn('chupacabra');
+    round1.takeTurn('gallbladder');
+
     expect(round1.endRound()).to.equal('**Round over!** You answered 50% of the questions correctly!');
   })
 });
