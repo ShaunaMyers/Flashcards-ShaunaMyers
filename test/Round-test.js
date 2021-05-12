@@ -54,12 +54,8 @@ describe('Round', function() {
     expect(round2).to.not.equal(round1.turn);
   })
 
-  it('should evaluate a guess when a turn is taken', function() {
-    expect(round1.takeTurn('gremlin')).to.equal(false);
-  });
-
-  it.skip('should give feedback when it a turn is taken', function() {
-    expect(round1.takeTurn()).to.equal('Incorrect!');
+  it('should evaluate answer and give feedback when it a turn is taken', function() {
+    expect(round1.takeTurn('porcupine')).to.equal('Incorrect!');
   });
 
   it.skip('should store the id of incorrect guesses', function() {
