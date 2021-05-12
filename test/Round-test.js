@@ -6,17 +6,16 @@ const Deck = require('../src/Deck');
 const Card = require('../src/Card');
 const Turn = require('../src/Turn');
 
-describe('Deck', function() {
+describe('Round', function() {
 
-  let round;
   let card1;
   let card2;
   let card3;
   let deck;
-  let turn1;
+  let currentTurn;
+  let round;
 
   beforeEach(function() {
-    round = new Round();
 
     card1 = new Card(1, 'What is Robbie\'s favorite animal', ['sea otter', 'pug', 'capybara'], 'sea otter');
     card2 = new Card(14, 'What organ is Khalid missing?', ['spleen', 'appendix', 'gallbladder'], 'gallbladder');
@@ -24,29 +23,30 @@ describe('Deck', function() {
 
     deck = new Deck([card1, card2, card3]);
 
-    turn1 = new Turn('sea otter', card);
+    currentTurn = new Turn('sea otter', card1);
+
+    round = new Round(deck);
+
   })
 
-  it.skip('should be a function', function() {
-    expect(round).to.be.a('function');
+  it('should be a function', function() {
+    expect(Round).to.be.a('function');
   });
 
-  it.skip('should be an instance of Deck', function() {
+  it('should be an instance of Deck', function() {
     expect(round).to.be.an.instanceof(Round);
   });
 
-  it.skip('should return the current card in play', function() {
-    expect(round.returnCurrentCard).to.equal(card1);
+  it('should return the current card in play', function() {
+    expect(round.returnCurrentCard()).to.equal(round.currentCard);
   });
 
-  it.skip('should keep track of how many turns have been taken', function() {
+  it('should keep track of how many turns have been taken', function() {
     expect(round.turns).to.equal(0);
 
     round.takeTurn();
-    round.takeTurn();
-    round.takeTurn();
 
-    expect(round.turns).to.equal(3);
+    expect(round.turns).to.equal(1);
   });
 
   it.skip('should evaluate a guess when a turn is taken', function() {
