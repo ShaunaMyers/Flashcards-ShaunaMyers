@@ -2,24 +2,29 @@ const data = require('./data');
 const prototypeQuestions = data.prototypeData;
 const util = require('./util');
 
+const Card = require('./Card');
+const Deck = require('./Deck');
+const Round = require('./Round');
+
 class Game {
   constructor() {
-    this.currentRound = 0;
+    this.currentRound = null;
+    this.start()
   }
 
   start() {
-    this.currentRound++;
-    const cards = prototypeData.map(card => {
-      new Card(cards.id, cards.question, cards.answers, cards.correctAnswer)
+    // may need to use bracket notation
+    const cards = prototypeQuestions.map(card => {
+      new Card(card.id, card.question, card.answers, card.correctAnswer);
     })
+
+    const deck = new Deck(cards);
+    const round = new Round(deck);
+    this.currentRound = round;
+
+    // this.printMessage(deck, round);
+    // this.printQuestion(round);
   }
-//Should keep track of the currentRound
-  // start: method that starts everything
-  // Creates Cards
-  // Puts Cards in a Deck
-  // Creates a new Round using the Deck
-  // invokes printMessage to display the message in the CLI
-  // invokes printQuestion to kick off our helper functions that allow interaction via the CLI
 
   printMessage(deck, round) {
       console.log(`Welcome to FlashCards! You are playing with ${deck.countCards()} cards.

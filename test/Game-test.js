@@ -17,35 +17,23 @@ const Turn = require('../src/Turn');
       let game;
 
     beforeEach(function() {
-
-      card1 = new Card(1, 'What is Robbie\'s favorite animal', ['sea otter', 'pug', 'capybara'], 'sea otter');
-      card2 = new Card(14, 'What organ is Khalid missing?', ['spleen', 'appendix', 'gallbladder'], 'gallbladder');
-      card3 = new Card(12, 'What is Travis\'s middle name?', ['Lex', 'William', 'Fitzgerald'], 'Fitzgerald');
-
-      deck = new Deck([card1, card2, card3]);
-
-      round1 = new Round(deck);
-
-      game = new Game(round1);
-
+      game = new Game();
     });
 
-    it.skip('should be a function', function() {
+    it('should be a function', function() {
       expect(Game).to.be.a('function');
     });
 
-    it.skip('should be an instance of Game', function() {
-      game.start();
-      game.start();
-      expect(game.currentRound).to.equal(2);
+    it('should be an instance of Game', function() {
+      expect(game).to.be.an.instanceof(Game);
     });
 
-    it.skip('should keep track of the currentRound', function() {
+    it('should keep track of currentRound', function() {
       expect(game.currentRound).to.be.an.instanceof(Round);
     });
 
-    it.skip('should start the game', function() {
-      expect(game.start())to.be.a('function');
+    it('should start the game with new cards in deck', function() {
+      expect(game.start).to.be.a('function');
     });
 
   });
