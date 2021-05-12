@@ -34,8 +34,10 @@ const Turn = require('../src/Turn');
       expect(Game).to.be.a('function');
     });
 
-    it.skip('should be an instance of Card', function() {
-      expect(game).to.be.an.instanceof(Game);
+    it.skip('should be an instance of Game', function() {
+      game.start();
+      game.start();
+      expect(game.currentRound).to.equal(2);
     });
 
     it.skip('should keep track of the currentRound', function() {
