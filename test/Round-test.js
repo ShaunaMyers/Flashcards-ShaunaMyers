@@ -12,7 +12,6 @@ describe('Round', function() {
   let card2;
   let card3;
   let deck;
-  let currentTurn;
   let round1;
 
   beforeEach(function() {
@@ -22,8 +21,6 @@ describe('Round', function() {
     card3 = new Card(12, 'What is Travis\'s middle name?', ['Lex', 'William', 'Fitzgerald'], 'Fitzgerald');
 
     deck = new Deck([card1, card2, card3]);
-
-    currentTurn = new Turn('sea otter', card1);
 
     round1 = new Round(deck);
 
@@ -57,8 +54,8 @@ describe('Round', function() {
     expect(round2).to.not.equal(round1.turn);
   })
 
-  it.skip('should evaluate a guess when a turn is taken', function() {
-    expect(round1.takeTurn()).to.equal(false);
+  it('should evaluate a guess when a turn is taken', function() {
+    expect(round1.takeTurn('gremlin')).to.equal(false);
   });
 
   it.skip('should give feedback when it a turn is taken', function() {
@@ -70,13 +67,6 @@ describe('Round', function() {
 
     expect(round1.incorrectGuesses).to.deep.equal([1]);
   });
-
-  // it.skip('should create a new instance of Turn when a guess is made', function() {
-  //   round.takeTurn();
-  //   round.takeTurn();
-  //
-  //   expect(round.returnCurrentCard()).to.equal(card3);
-  // });
 
   it.skip('should calculate and return percentage of correct guesses', function() {
     round1.takeTurn();
