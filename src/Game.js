@@ -8,22 +8,25 @@ const Round = require('./Round');
 
 class Game {
   constructor() {
-    this.currentRound = null;
+    this.currentRound = {};
     this.start()
   }
 
   start() {
     // may need to use bracket notation
-    const cards = prototypeQuestions.map(card => {
-      new Card(card.id, card.question, card.answers, card.correctAnswer);
-    })
+    const cards = prototypeQuestions.map((card, i) => new Card(
+      prototypeQuestions[i].id,
+      prototypeQuestions[i].question,
+      prototypeQuestions[i].answers,
+      prototypeQuestions[i].correctAnswer
+    ));
 
     const deck = new Deck(cards);
-    const round = new Round(deck);
+    const round = new Round(deck)
     this.currentRound = round;
 
-    // this.printMessage(deck, round);
-    // this.printQuestion(round);
+    this.printMessage(deck, round);
+    this.printQuestion(round);
   }
 
   printMessage(deck, round) {
