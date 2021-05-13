@@ -7,11 +7,7 @@ const Card = require('../src/Card');
 
 describe('Round', function() {
 
-  let card1;
-  let card2;
-  let card3;
-  let deck;
-  let round1;
+  let card1, card2, card3, deck, round1;
 
   beforeEach(function() {
 
