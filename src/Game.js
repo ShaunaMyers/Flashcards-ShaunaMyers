@@ -9,11 +9,11 @@ const Round = require('./Round');
 class Game {
   constructor() {
     this.currentRound = {};
-    this.start()
+    // this.start();
   }
 
   start() {
-    // may need to use bracket notation
+
     const cards = prototypeQuestions.map((card, i) => new Card(
       prototypeQuestions[i].id,
       prototypeQuestions[i].question,

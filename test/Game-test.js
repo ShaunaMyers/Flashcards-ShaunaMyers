@@ -3,18 +3,10 @@ const expect = chai.expect;
 
 const Game = require('../src/Game');
 const Round = require('../src/Round');
-const Deck = require('../src/Deck');
-const Card = require('../src/Card');
-const Turn = require('../src/Turn');
 
   describe('Game', function() {
 
-      let card1;
-      let card2;
-      let card3;
-      let deck;
-      let round1;
-      let game;
+    let game;
 
     beforeEach(function() {
       game = new Game();
