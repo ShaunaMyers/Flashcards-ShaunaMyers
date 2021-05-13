@@ -13,11 +13,11 @@ class Game {
 
   start() {
 
-    const cards = prototypeQuestions.map((card, i) => new Card(
-      prototypeQuestions[i].id,
-      prototypeQuestions[i].question,
-      prototypeQuestions[i].answers,
-      prototypeQuestions[i].correctAnswer
+    const cards = prototypeQuestions.map((card) => new Card(
+      card.id,
+      card.question,
+      card.answers,
+      card.correctAnswer
     ));
 
     const deck = new Deck(cards);
