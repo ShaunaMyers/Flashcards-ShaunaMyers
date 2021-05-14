@@ -17,9 +17,15 @@ https://frontend.turing.edu/projects/flash-cards.html
 
 ![Flashcards-gif](https://media.giphy.com/media/XA8fiHkIOlLD2uQvUk/giphy.gif)
 
+### You will be greeted initially and will see a prompt with a question and possible answers.
+
 <img width="1440" alt="Screen Shot 2021-05-13 at 8 54 05 PM" src="https://user-images.githubusercontent.com/74690897/118205082-9cac5600-b42d-11eb-805e-f229f496224a.png">
 
+### Make your guess by typing in the number associated with that answer and press "enter."
+
 <img width="1440" alt="Screen Shot 2021-05-13 at 8 54 44 PM" src="https://user-images.githubusercontent.com/74690897/118205121-adf56280-b42d-11eb-8b29-4c0b0e7624c4.png">
+
+### When you've answered all of the questions you will see your final score, displaying what percentage of the questions you answered correctly.
 
 <img width="1440" alt="Screen Shot 2021-05-13 at 8 55 17 PM" src="https://user-images.githubusercontent.com/74690897/118205125-af268f80-b42d-11eb-917e-c74b430b0f8a.png">
 
